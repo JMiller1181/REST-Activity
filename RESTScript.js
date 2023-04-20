@@ -6,9 +6,20 @@ document.querySelector("#button1").addEventListener("click", () => {
       const pageContent = document.querySelector("main");
       pageContent.innerHTML = "";
       arr.forEach((i) => {
-        let post = document.createElement("p");
-        post.innerHTML = JSON.stringify(i);
-        pageContent.appendChild(post);
+        let container = document.createElement("div");
+        let userId = document.createElement("p");
+        let postNum = document.createElement("p");
+        let postTitle = document.createElement("p");
+        let content = document.createElement("p");
+        userId.innerHTML = "user ID: " + JSON.stringify(i.userId);
+        postNum.innerHTML = "Post: " + JSON.stringify(i.id);
+        postTitle.innerHTML = JSON.stringify(i.title);
+        content.innerHTML = JSON.stringify(i.body);
+        pageContent.appendChild(container);
+        container.appendChild(userId);
+        container.appendChild(postNum);
+        container.appendChild(postTitle);
+        container.appendChild(content);
       });
     });
 });
@@ -19,9 +30,20 @@ document.querySelector("#button2").addEventListener("click", () => {
     .then((post10) => {
       const pageContent = document.querySelector("main");
       pageContent.innerHTML = "";
-      let post = document.createElement("p");
-      post.innerHTML = JSON.stringify(post10);
-      pageContent.appendChild(post);
+        let container = document.createElement("div");
+        let userId = document.createElement("p");
+        let postNum = document.createElement("p");
+        let postTitle = document.createElement("p");
+        let content = document.createElement("p");
+        userId.innerHTML = "user ID: " + JSON.stringify(post10.userId);
+        postNum.innerHTML = "Post: " + JSON.stringify(post10.id);
+        postTitle.innerHTML = JSON.stringify(post10.title);
+        content.innerHTML = JSON.stringify(post10.body);
+        pageContent.appendChild(container);
+        container.appendChild(userId);
+        container.appendChild(postNum);
+        container.appendChild(postTitle);
+        container.appendChild(content);
     });
 });
 // clicking the third button will create a new post with a server generated id
